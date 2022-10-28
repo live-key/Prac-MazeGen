@@ -1,5 +1,5 @@
 var dim, current;
-var res = 50;
+var res = 100;
 var grid = [], path = [];
 
 function setup() {
@@ -18,11 +18,6 @@ function setup() {
 }
 
 function draw() {
-    background(51);
-    for (let i = 0; i < grid.length; i++) {
-        grid[i].show();
-    }
-
     current.visited = true;
 
     let next = current.getAdjacent();
@@ -33,6 +28,16 @@ function draw() {
         current = next;
     } else {
         current = path.pop();
+    }
+
+    background(51);
+    for (let i = 0; i < grid.length; i++) {
+        grid[i].show();
+    }
+
+    if (current == grid[0]) {
+        console.log("FIN");
+        noLoop();
     }
 }
 
