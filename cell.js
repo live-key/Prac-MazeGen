@@ -10,6 +10,7 @@ class Cell {
         var x = this.i * res;
         var y = this.j * res;
         stroke(255);
+        strokeWeight(2);
         if (this.walls[0]) {
             line(x, y, x + res, y);
         }
@@ -25,7 +26,13 @@ class Cell {
 
         if (this.visited) {
             noStroke();
-            fill(255, 0, 255, 100);
+            fill(0, 0, 0, 100);
+            rect(x, y, res, res);
+        }
+
+        if (this == current) {
+            noStroke();
+            fill(0, 0, 255, 100);
             rect(x, y, res, res);
         }
     }

@@ -1,6 +1,6 @@
 var dim, current;
 var res = 50;
-var grid = [], stack = [];
+var grid = [], path = [];
 
 function setup() {
     createCanvas(600, 600);
@@ -28,10 +28,11 @@ function draw() {
     let next = current.getAdjacent();
     if (next) {
         next.visited = true;
+        path.push(current)
         current.del(next);
         current = next;
     } else {
-        noLoop();
+        current = path.pop();
     }
 }
 
