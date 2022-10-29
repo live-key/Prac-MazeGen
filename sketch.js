@@ -1,5 +1,5 @@
 var dim, current;
-var res = 100;
+var res = 40;
 var grid = [], path = [];
 
 function setup() {
